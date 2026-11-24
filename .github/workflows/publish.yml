@@ -27,6 +27,12 @@ jobs:
       - name: Build and test with Maven
         run: mvn -B verify
 
+      - name: Set version from run number
+        run: |
+          mvn -B org.codehaus.mojo:versions-maven-plugin:set \
+            -DnewVersion="0.1.${{ github.run_number }}" \
+            -DgenerateBackupPoms=false
+
       - name: Publish to GitHub Packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
