@@ -2,7 +2,7 @@ name: Build and Publish to GitHub Packages
 
 on:
   push:
-    branches: [main]
+    tags: ["v*"]
   workflow_dispatch:
 
 jobs:
@@ -26,12 +26,6 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn -B verify
-
-      - name: Set version from run number
-        run: |
-          mvn -B org.codehaus.mojo:versions-maven-plugin:set \
-            -DnewVersion="0.1.${{ github.run_number }}" \
-            -DgenerateBackupPoms=false
 
       - name: Publish to GitHub Packages
         env:
