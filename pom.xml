@@ -6,7 +6,7 @@
 
     <groupId>br.com.example</groupId>
     <artifactId>valida-dados</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
     <name>valida-dados</name>
     <description>Biblioteca Java para validação de dados (CPF, CNPJ etc.)</description>

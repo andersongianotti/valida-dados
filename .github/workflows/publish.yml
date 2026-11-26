@@ -27,6 +27,15 @@ jobs:
       - name: Build and test with Maven
         run: mvn -B verify
 
+      - name: Set version from tag
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+            echo "Publicando versão $VERSION (tag $GITHUB_REF_NAME)"
+            mvn -B org.codehaus.mojo:versions-maven-plugin:set \
+              -DnewVersion="$VERSION" -DgenerateBackupPoms=false
+          fi
+
       - name: Publish to GitHub Packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
