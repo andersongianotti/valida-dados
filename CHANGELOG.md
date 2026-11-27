@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/andersongianotti/valida-dados/compare/v0.2.0...v0.2.1) (2026-11-27)
+
+
+### Bug Fixes
+
+* **cep:** corrige consulta ViaCEP e tratamento de interrupcao ([16b857f](https://github.com/andersongianotti/valida-dados/commit/16b857f111200ac7f6790093de94e59a7e66fc5d))
+* **ci:** versao publicada passa a vir da tag git ([20cd457](https://github.com/andersongianotti/valida-dados/commit/20cd457ab93328129b50363cf5386b31d0f66920))
+
 ## [0.2.0](https://github.com/andersongianotti/valida-dados/compare/v0.1.0...v0.2.0) (2026-11-26)
 
 
