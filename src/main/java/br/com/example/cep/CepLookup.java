@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 public final class CepLookup {
 
-    private static final String VIACEP_URL = "https://viacep.com.br/ws/%s/JSON/";
+    private static final String VIACEP_URL = "https://viacep.com.br/ws/%s/json/";
     private static final String CORREIOS_URL = "https://api.correios.com.br/cep/v2/enderecos/%s";
     private static final Duration TIMEOUT = Duration.ofSeconds(10);
 
@@ -62,8 +62,10 @@ public final class CepLookup {
                     str(json, "bairro"),
                     str(json, "localidade"),
                     str(json, "uf")));
-        } catch (IOException | InterruptedException e) {
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            return Optional.empty();
+        } catch (IOException | RuntimeException e) {
             return Optional.empty();
         }
     }
@@ -101,8 +103,10 @@ public final class CepLookup {
                     str(json, "bairro"),
                     str(json, "localidade"),
                     str(json, "uf")));
-        } catch (IOException | InterruptedException e) {
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            return Optional.empty();
+        } catch (IOException | RuntimeException e) {
             return Optional.empty();
         }
     }
